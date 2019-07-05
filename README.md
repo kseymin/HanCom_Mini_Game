@@ -65,3 +65,27 @@ GAME UI
 >lchbest10/AcidRain
 
 //저작권 문제시 삭제 하겠습니다.
+
+
+제작자
+=======
+
+kseymin
+-------
+
+https://github.com/kseymin
+
+Chars4785
+---------
+
+https://github.com/Chars4785
+
+JINWOO26
+--------
+
+https://github.com/JINWOO26
+
+yarbob00
+--------
+
+https://github.com/yarbob00
