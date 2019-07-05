@@ -16,6 +16,11 @@ String DB_driverName = "oracle.jdbc.driver.OracleDriver";
 
 알맞은 정보를 넣으면됩니다.
 
+#sql 스키마는 SQL폴더에 넣어두었습니다.
+
+사용자의 이름을 바꾸고 스키마를 적용시켜주시기바랍니다.
+
+
 GAME UI
 -------
 
@@ -42,6 +47,7 @@ GAME UI
 --------------
 
 >tuguri8/sansungbi-java
+
 >lchbest10/AcidRain
 
 //저작권 문제시 삭제 하겠습니다.
