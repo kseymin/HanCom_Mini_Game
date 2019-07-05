@@ -56,7 +56,7 @@ GAME UI
 
 <center><img src="https://github.com/kseymin/HanCom_Mini_Game/blob/master/pic4.PNG"></center>
 
-처음시작
+결과화면 
 
 <center><img src="https://github.com/kseymin/HanCom_Mini_Game/blob/master/pic3.PNG"></center>
 
