@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+
+import javax.swing.JOptionPane;
 
 class Word {
 	
@@ -16,7 +16,6 @@ class Word {
 	String DB_USER = "c##ora_user";
 	String DB_PW = "rla";
 	ArrayList<String> words;
-	Set<String> temp = new HashSet<String>();
 	
 	Connection connection = null;
 	Statement statement = null;
@@ -54,19 +53,17 @@ class Word {
 	
 	public void getRandomWords() {
 		ResultSet rs = null;
-		String queryString="SELECT * FROM(SELECT * FROM WORDS ORDER BY DBMS_RANDOM.RANDOM) WHERE ROWNUM <= 27";
+		//String queryString="SELECT * FROM(SELECT * FROM WORDS ORDER BY DBMS_RANDOM.RANDOM) WHERE ROWNUM <= 27";
 		
 		try {
-			//String queryString ="select * from WORDS";
+			String queryString ="select * from WORDS";
 			connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PW);
 			statement = connection.createStatement();
 			rs = statement.executeQuery(queryString);
 			
 			while(rs.next()) {
-				temp.add(rs.getString(1));
+				words.add(rs.getString(1));
 			}
-			words.addAll(temp);
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
