@@ -3,12 +3,8 @@ package main.com.show;
 import java.awt.BorderLayout;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -24,149 +20,118 @@ import AcidRain.StartFrame;
 
 public class ResultView implements ActionListener {
 
-   JFrame frame;
-   JPanel panel, panel_1;
-   JButton endButton, reStartButton, btnNewButton, button;
-   JLabel lblNewLabel, scoreLabel, nameLabel;
-   private JLabel lblNewLabel_1;
-   int score, wordCount;
-   private JTable table;
-   Vector<Vector<String>> vc = new Vector<Vector<String>>();
+	JFrame frame;
+	JPanel panel, panel_1;
+	JButton endButton, reStartButton, btnNewButton, button;
+	JLabel lblNewLabel, scoreLabel, nameLabel;
+	int score, wordCount;
+	private JTable table;
+	Vector<Vector<String>> vc = new Vector<Vector<String>>();
 
-   Vector<String> userColumn = new Vector<String>();
-   Vector<String> userRow = new Vector<String>();
-   DefaultTableModel model = new DefaultTableModel();
-   private JTable table_1;
+	Vector<String> userColumn = new Vector<String>();
+	Vector<String> userRow = new Vector<String>();
+	DefaultTableModel model = new DefaultTableModel();
+	private JTable table_1;
 
-   DataBase database = new DataBase();
-   
-   public ResultView(int score, int wordCount)  {
-      
+	DataBase database = new DataBase();
+	
+	public ResultView(int score, int wordCount) {
+		this.score = score;
+		this.wordCount = wordCount;
+		
+		frame = new JFrame();
+		panel = new JPanel();
+		panel_1 = new JPanel();
+		lblNewLabel = new JLabel();
+		endButton = new JButton("End");
+		reStartButton = new JButton("Re");
+		lblNewLabel = new JLabel("\uACB0\uACFC");
+		scoreLabel = new JLabel();
+		nameLabel = new JLabel(StartFrame.user.getUSER_ID());
 
-     
+		frame.setBounds(100, 100, 500, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-      this.score = score;
-      this.wordCount = wordCount;
-      
-      frame = new JFrame();
-      frame.setBackground(Color.black); //
-      panel = new JPanel();
-      panel_1 = new JPanel();
-      panel_1.setForeground(Color.BLACK);
-      lblNewLabel = new JLabel();
-      endButton = new JButton("END");
-      endButton.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 12));
-      endButton.setForeground(Color.WHITE);
-      endButton.setBackground(Color.DARK_GRAY);
-      reStartButton = new JButton("RESTART");
-      reStartButton.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 12));
-      reStartButton.setBackground(Color.DARK_GRAY);
-      reStartButton.setForeground(Color.WHITE);
-      lblNewLabel_1 = new JLabel("GAME RESULT");
-      lblNewLabel_1.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 20));
-      lblNewLabel_1.setForeground(Color.WHITE);
-      scoreLabel = new JLabel();
-      scoreLabel.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 12));
-      scoreLabel.setForeground(Color.WHITE);
-      nameLabel = new JLabel(StartFrame.user.getUSER_ID());
-      nameLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD | Font.ITALIC, 12));
-      nameLabel.setForeground(Color.WHITE);
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
 
-      frame.setBounds(100, 100, 500, 500);
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_1.setBounds(127, 10, 230, 242);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
 
-      frame.getContentPane().add(panel, BorderLayout.CENTER);
-      panel.setLayout(null);
+		endButton.setBounds(12, 209, 76, 23);
+		endButton.addActionListener(this);
+		panel_1.add(endButton);
 
-      panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-      panel_1.setBounds(12, 10, 460, 242);
-      panel_1.setBackground(Color.BLACK);//
-      panel.add(panel_1);
-      panel_1.setLayout(null);
+		reStartButton.setBounds(129, 209, 76, 23);
+		reStartButton.addActionListener(this);
+		panel_1.add(reStartButton);
 
-      endButton.setBounds(297, 151, 100, 57);
-      endButton.addActionListener(this);
-     
-      panel_1.add(endButton);
+		lblNewLabel.setBounds(98, 10, 44, 15);
+		panel_1.add(lblNewLabel);
 
-      reStartButton.setBounds(297, 35, 100, 57);
-      reStartButton.addActionListener(this);
-      panel_1.add(reStartButton);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(27, 26, 178, 173);
+		panel_1.add(panel_2);
+		panel_2.setLayout(null);
 
-      lblNewLabel_1.setBounds(163, 10, 138, 24);
-      panel_1.add(lblNewLabel_1);
+		JLabel namein = new JLabel("\uC774\uB984");
+		namein.setBounds(23, 35, 57, 15);
+		panel_2.add(namein);
 
-      JPanel panel_2 = new JPanel();
-      panel_2.setBackground(Color.BLACK);
-      panel_2.setForeground(Color.WHITE);
-      panel_2.setBounds(60, 35, 178, 173);
-      panel_1.add(panel_2);
-      panel_2.setLayout(null);
+		JLabel scorein = new JLabel("\uC810\uC218");
+		scorein.setBounds(23, 66, 57, 15);
+		panel_2.add(scorein);
 
-//      JLabel namein = new JLabel("\uC774\uB984");
-      JLabel namein = new JLabel("NAME");
-      namein.setForeground(Color.WHITE);
-      namein.setBounds(23, 35, 57, 15);
-      namein.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 12));//
-      
-      panel_2.add(namein);
+		nameLabel.setBounds(78, 35, 57, 15);
+		panel_2.add(nameLabel);
 
-//      JLabel scorein = new JLabel("\uC810\uC218");
-      JLabel scorein = new JLabel("RESULT");
-      scorein.setForeground(Color.WHITE);
-      scorein.setBounds(23, 66, 57, 15);
-      scorein.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 12));//
-      panel_2.add(scorein);
+		//score = checkTheFinishedGame(score);
 
-      nameLabel.setBounds(78, 35, 57, 15);
-      panel_2.add(nameLabel);
+		scoreLabel.setText(Integer.toString(score));
+		scoreLabel.setBounds(78, 67, 57, 15);
+		panel_2.add(scoreLabel);
+		
+		database.InsertScore(StartFrame.user.getUSER_ID(), Integer.toString(GameChooseUI.GAMESCORE), StartFrame.user.getWhichGame());
 
-      score = checkTheFinishedGame(score);
+		String[][] ColumnName = { { "ID", "NAME", "RAINSCR", "MINESCR", "TotalSCR" }, };
+		String[] Name = { "ID", "NAME", "RAINSCR", "MINESCR", "TotalSCR" };
 
-      scoreLabel.setText(Integer.toString(score));
-      scoreLabel.setBounds(78, 67, 57, 15);
-      panel_2.add(scoreLabel);
-      
-      database.InsertScore(StartFrame.user.getUSER_ID(), Integer.toString(score), StartFrame.user.getWhichGame());
+		model = new DefaultTableModel(ColumnName, Name);
+		
+		table = new JTable();
+		
+		vc = database.View();
+		for(int i=0;i<vc.size();i++)
+			model.addRow(vc.get(i));
+		
+		table.setModel(model);
+		panel.add(table);
+		table.setBounds(12, 278, 460, 174);
+		table.setVisible(true);
+		
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+		GameChooseUI.mainFrame.setVisible(false);
+	}
 
-      String[][] ColumnName = { { "ID", "NAME", "RAINSCR", "MINESCR", "TotalSCR" }, };
-      String[] Name = { "ID", "NAME", "RAINSCR", "MINESCR", "TotalSCR" };
+	public int checkTheFinishedGame(int score) {
+		return wordCount > 0 ? 0 : score;
+	}
 
-      model = new DefaultTableModel(ColumnName, Name);
-      
-      table = new JTable();
-      table.setFont(new Font("¸¼Àº °íµñ", Font.BOLD | Font.ITALIC, 12));
-      
-      vc = database.View();
-      for(int i=0;i<vc.size();i++)
-         model.addRow(vc.get(i));
-      
-      table.setModel(model);
-      panel.add(table);
-      table.setBounds(12, 278, 460, 174);
-      table.setVisible(true);
-      
-      frame.getContentPane().add(panel);
-      frame.setVisible(true);
-      GameChooseUI.mainFrame.setVisible(false);
-   }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == endButton) {
+			System.exit(0);
+		}
 
-   public int checkTheFinishedGame(int score) {
-      return wordCount > 0 ? 0 : score;
-   }
+		if (e.getSource() == reStartButton) {
+			GameChooseUI.mainFrame.dispose();
+			GameChooseUI.GAMESCORE = 0;
+			new GameChooseUI().showUI();
 
-   @Override
-   public void actionPerformed(ActionEvent e) {
-      if (e.getSource() == endButton) {
-         System.exit(0);
-      }
-
-      if (e.getSource() == reStartButton) {
-         GameChooseUI.mainFrame.dispose();
-         GameChooseUI.GAMESCORE = 0;
-         new GameChooseUI().showUI();
-
-      }
-   }
+		}
+	}
 
 }

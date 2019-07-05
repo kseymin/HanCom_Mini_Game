@@ -13,7 +13,6 @@ public class CheckTheGameEnd extends Thread {
 	public JLabel playTime;
 	int wordCount;
 
-
 	public CheckTheGameEnd(int gameTime, LinkedList<JLabel> words) {
 		this.words = words;
 		gamePlayTime = gameTime;
@@ -31,21 +30,12 @@ public class CheckTheGameEnd extends Thread {
 
 	public void checkTheEnd() throws InterruptedException {
 		
-		while ((gamePlayTime > 0 && words.size() > 0) && checkTheHeart()) {
+		while ((gamePlayTime > 0 && words.size() > 0)) {
 			Thread.sleep(1000);
 			playTime.setText(gamePlayTime + "");
 			gamePlayTime--;
 		}
 
 		throw new InterruptedException();
-	}
-	
-	public boolean checkTheHeart() {
-		for(JLabel each : words) {
-			if(!each.isVisible()) {
-				return false;
-			}
-		}
-		return true;
 	}
 }

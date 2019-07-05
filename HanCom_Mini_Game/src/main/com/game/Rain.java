@@ -30,17 +30,15 @@ public class Rain extends Thread {
 	}
 
 	public void wordcheckTheDeadLine(int index) {
-		if (words.get(index).getY() > 480 && words.get(index).isVisible()) {
+		if (words.get(index).getY() > 550 && words.get(index).isVisible()) {
 			words.get(index).setVisible(false);
 
 			if (RainGame.lifeMark.isEmpty()) {
-				
 				playTime.interrupt();
 			}
 			RainGame.lifeMark.poll().setVisible(false);
 		}
 	}
-	
 
 	public void run() {
 		while (CheckTheGameEnd.gamePlayTime > 0) {

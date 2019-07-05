@@ -88,7 +88,7 @@ public class RainGame implements KeyListener {
 
 			tempLabel.setFont(new Font("Times", Font.BOLD, 12));
 			tempLabel.setForeground(Color.WHITE);
-			tempLabel.setBounds((int) (Math.random() * 700) + 50, -10, 150, 20);
+			tempLabel.setBounds((int) (Math.random() * 450) + 50, -10, 150, 20);
 			tempLabel.setVisible(true);
 
 			words.add(tempLabel);

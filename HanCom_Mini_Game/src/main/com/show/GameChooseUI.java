@@ -48,7 +48,7 @@ public class GameChooseUI implements ActionListener {
 		      controlPanel.setBounds(0, 1, 557, 359);
 		      
 		      
-		mainFrame.setBounds(100, 100, 560, 400);
+		mainFrame.setBounds(100, 100, 800, 600);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().add(controlPanel, BorderLayout.CENTER);
 		
@@ -85,13 +85,11 @@ public class GameChooseUI implements ActionListener {
 		mainFrame.remove(controlPanel);
 
 		if (e.getSource() == rainGameButton) {
-			mainFrame.setBounds(100, 100, 800, 600);
 			StartFrame.user.setWhichGame(1);
 			new RainGameUIPanel();
 		}
 
 		if (e.getSource() == harvestingGameButton) {
-			mainFrame.setBounds(100, 100, 800, 600);
 			StartFrame.user.setWhichGame(2);
 			new MineGameUIPanel();
 		}

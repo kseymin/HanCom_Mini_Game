@@ -6,11 +6,11 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 
 public class DataBase extends JOptionPane {
-	
+
 	String DB_driverName = "oracle.jdbc.driver.OracleDriver";
-	String DB_URL = "jdbc:oracle:thin:???";
-	String DB_USER = "yourUSER";
-	String DB_PW = "yourPW";
+	String DB_URL = "jdbc:oracle:thin:@192.168.30.75:1521:xe";
+	String DB_USER = "c##ora_user";
+	String DB_PW = "rla";
 
 	Connection connection = null;
 	Statement statement = null;
@@ -21,7 +21,7 @@ public class DataBase extends JOptionPane {
 			Class.forName(DB_driverName);
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("[ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½]\n" + e.getStackTrace());
+			System.out.println("[·Îµå ¿À·ù]\n" + e.getStackTrace());
 		}
 
 	}
@@ -40,7 +40,7 @@ public class DataBase extends JOptionPane {
 				resultSet.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("[ï¿½Ý±ï¿½ ï¿½ï¿½ï¿½ï¿½]\n" + e.getStackTrace());
+			System.out.println("[´Ý±â ¿À·ù]\n" + e.getStackTrace());
 		}
 	}
 
@@ -57,7 +57,7 @@ public class DataBase extends JOptionPane {
 
 			resultValue = statement.executeUpdate(queryString);
 		} catch (SQLException e) {
-			showMessageDialog(null, "IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ID°¡ Á¸ÀçÇÕ´Ï´Ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 
@@ -79,7 +79,7 @@ public class DataBase extends JOptionPane {
 
 			resultValue = statement.executeUpdate(queryString);
 		} catch (SQLException e) {
-			showMessageDialog(null, "Scoreboardï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ScoreboardÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -104,7 +104,7 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -130,19 +130,19 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
-		// IDï¿½ï¿½ï¿½ï¿½
+		// ID¾øÀ½
 		if (IDexist(USER_ID) == 0) {
 			return 0;
 		}
-		// ï¿½ï¿½Ð¹ï¿½È£ Æ²ï¿½ï¿½ï¿½ï¿½
+		// ºñ¹Ð¹øÈ£ Æ²·ÈÀ½
 		else if (IDexist(USER_ID) == 1 && resultValue == 0) {
 			return -1;
 		}
-		// ï¿½ï¿½Ð¹ï¿½È£ ID ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ºñ¹Ð¹øÈ£ ID ´Ù ¸ÂÀ½
 		else if (resultValue == 1) {
 			return 1;
 		}
@@ -168,7 +168,7 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -199,7 +199,7 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -231,7 +231,7 @@ public class DataBase extends JOptionPane {
 			statement.executeUpdate(queryString);
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -250,7 +250,7 @@ public class DataBase extends JOptionPane {
 			statement.executeUpdate(queryString);
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ï¿½Ô·Â¿ï¿½ï¿½ï¿½", "IDï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
