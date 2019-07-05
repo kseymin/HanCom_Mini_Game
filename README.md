@@ -18,7 +18,7 @@ String DB_driverName = "oracle.jdbc.driver.OracleDriver";
 
 #sql 스키마는 SQL폴더에 넣어두었습니다.
 
-사용자의 이름을 바꾸고 스키마를 적용시켜주시기바랍니다.
+사용자의 DB 이름으로 바꾸고 스키마를 적용시켜주시기바랍니다.
 
 
 GAME UI
