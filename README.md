@@ -14,11 +14,11 @@ String DB_driverName = "oracle.jdbc.driver.OracleDriver";
 
 #GAME UI
 
-![처음시작](pic1.jpg)
+![처음시작](https://github.com/kseymin/HanCom_Mini_Game/pic1.jpg)
 
-![산성비](pic2.jpg)
-![자원캐기](pic4.jpg)
-![처음시작](pic3.jpg)
+![산성비](https://github.com/kseymin/HanCom_Mini_Game/pic2.jpg)
+![자원캐기](https://github.com/kseymin/HanCom_Mini_Game/pic4.jpg)
+![처음시작](https://github.com/kseymin/HanCom_Mini_Game/pic3.jpg)
 
 
 
