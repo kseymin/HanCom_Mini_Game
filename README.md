@@ -12,14 +12,19 @@ OJDBC 8
 
 
 
-
-
-
 #DB
 
 데이터베이스는 ORACLE DB를 이용하였습니다. 
 
 HanCom_Mini_Game\src\AcidRain\DataBase.java
+
+와 
+
+HanCom_Mini_Game/src/main/com/game/Word.java
+
+에
+
+아래에 소스를 확인하시고
 
 ```java
 String DB_driverName = "oracle.jdbc.driver.OracleDriver";
