@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
 class Word {
 	
 	String DB_driverName = "oracle.jdbc.driver.OracleDriver";
-	String DB_URL = "jdbc:oracle:thin:@192.168.30.75:1521:xe";
-	String DB_USER = "c##ora_user";
-	String DB_PW = "rla";
+	String DB_URL = "yourDBurl";
+	String DB_USER = "yourDBuserID";
+	String DB_PW = "yourDBpassword";
 	ArrayList<String> words;
 	
 	Connection connection = null;
@@ -27,11 +27,11 @@ class Word {
 				Class.forName(DB_driverName);
 
 			} catch (ClassNotFoundException e) {
-				System.out.println("[·Îµå ¿À·ù]\n" + e.getStackTrace());
+				System.out.println("[ë¡œë“œ ì˜¤ë¥˜]\n" + e.getStackTrace());
 			}
 		 getRandomWords();
 	}
-	//SELECT [ÄÃ·³¸í] FROM [Å×ÀÌºí¸í] ORDER BY RAND() LIMIT [°³¼ö]
+	//SELECT [ì»¬ëŸ¼ëª…] FROM [í…Œì´ë¸”ëª…] ORDER BY RAND() LIMIT [ê°œìˆ˜]
 	
 	public void closeDatabase() {
 		try {
@@ -47,7 +47,7 @@ class Word {
 				resultSet.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("[´İ±â ¿À·ù]\n" + e.getStackTrace());
+			System.out.println("[ë‹«ê¸° ì˜¤ë¥˜]\n" + e.getStackTrace());
 		}
 	}
 	
