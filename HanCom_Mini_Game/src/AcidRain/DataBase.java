@@ -8,9 +8,9 @@ import javax.swing.JOptionPane;
 public class DataBase extends JOptionPane {
 
 	String DB_driverName = "oracle.jdbc.driver.OracleDriver";
-	String DB_URL = "jdbc:oracle:thin:@192.168.30.75:1521:xe";
-	String DB_USER = "c##ora_user";
-	String DB_PW = "rla";
+	String DB_URL = "yourURL";
+	String DB_USER = "yourDBuserID";
+	String DB_PW = "yourDBpassword";
 
 	Connection connection = null;
 	Statement statement = null;
@@ -21,7 +21,7 @@ public class DataBase extends JOptionPane {
 			Class.forName(DB_driverName);
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("[·Îµå ¿À·ù]\n" + e.getStackTrace());
+			System.out.println("[ë¡œë“œ ì˜¤ë¥˜]\n" + e.getStackTrace());
 		}
 
 	}
@@ -40,7 +40,7 @@ public class DataBase extends JOptionPane {
 				resultSet.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("[´İ±â ¿À·ù]\n" + e.getStackTrace());
+			System.out.println("[ë‹«ê¸° ì˜¤ë¥˜]\n" + e.getStackTrace());
 		}
 	}
 
@@ -57,7 +57,7 @@ public class DataBase extends JOptionPane {
 
 			resultValue = statement.executeUpdate(queryString);
 		} catch (SQLException e) {
-			showMessageDialog(null, "ID°¡ Á¸ÀçÇÕ´Ï´Ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "IDê°€ ì¡´ì¬í•©ë‹ˆë‹¤", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 
@@ -79,7 +79,7 @@ public class DataBase extends JOptionPane {
 
 			resultValue = statement.executeUpdate(queryString);
 		} catch (SQLException e) {
-			showMessageDialog(null, "ScoreboardÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "Scoreboardì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -104,7 +104,7 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -130,19 +130,19 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
-		// ID¾øÀ½
+		// IDì—†ìŒ
 		if (IDexist(USER_ID) == 0) {
 			return 0;
 		}
-		// ºñ¹Ğ¹øÈ£ Æ²·ÈÀ½
+		// ë¹„ë°€ë²ˆí˜¸ í‹€ë ¸ìŒ
 		else if (IDexist(USER_ID) == 1 && resultValue == 0) {
 			return -1;
 		}
-		// ºñ¹Ğ¹øÈ£ ID ´Ù ¸ÂÀ½
+		// ë¹„ë°€ë²ˆí˜¸ ID ë‹¤ ë§ìŒ
 		else if (resultValue == 1) {
 			return 1;
 		}
@@ -168,7 +168,7 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -199,7 +199,7 @@ public class DataBase extends JOptionPane {
 			}
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -231,7 +231,7 @@ public class DataBase extends JOptionPane {
 			statement.executeUpdate(queryString);
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
@@ -250,7 +250,7 @@ public class DataBase extends JOptionPane {
 			statement.executeUpdate(queryString);
 
 		} catch (SQLException e) {
-			showMessageDialog(null, "ÀÔ·Â¿À·ù", "IDÁ¸Àç", JOptionPane.WARNING_MESSAGE);
+			showMessageDialog(null, "ì…ë ¥ì˜¤ë¥˜", "IDì¡´ì¬", JOptionPane.WARNING_MESSAGE);
 		} finally {
 			closeDatabase();
 		}
